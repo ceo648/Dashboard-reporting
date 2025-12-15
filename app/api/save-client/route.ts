@@ -6,6 +6,9 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
 
+    console.log('📤 Invio a n8n:', N8N_WEBHOOK_URL)
+    console.log('📦 Payload:', JSON.stringify(body, null, 2))
+
     // Inoltra la richiesta al webhook n8n
     const response = await fetch(N8N_WEBHOOK_URL, {
       method: 'POST',
@@ -15,12 +18,16 @@ export async function POST(request: NextRequest) {
       body: JSON.stringify(body),
     })
 
+    console.log('📥 Risposta n8n:', response.status, response.statusText)
+
     if (!response.ok) {
       const errorText = await response.text()
+      console.error('❌ Errore n8n:', errorText)
       return NextResponse.json(
         { 
           error: `Errore dal webhook n8n: ${response.status} ${response.statusText}`,
-          details: errorText 
+          details: errorText,
+          webhookUrl: N8N_WEBHOOK_URL
         },
         { status: response.status }
       )
