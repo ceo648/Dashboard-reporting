@@ -34,4 +34,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Ignora la cartella Dashboard (è un progetto separato)
+/Dashboard
+
 
