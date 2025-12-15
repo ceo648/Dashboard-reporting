@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const N8N_WEBHOOK_URL = 'https://sunpoweragency.app.n8n.cloud/webhook-test/add-client-config'
+const N8N_WEBHOOK_URL = 'https://sunpoweragency.app.n8n.cloud/webhook/add-client-config'
 
 export async function POST(request: NextRequest) {
   try {
