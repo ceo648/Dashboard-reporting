@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Papa from 'papaparse'
+
 import { Loader2, CheckCircle2, Upload, ArrowRight } from 'lucide-react'
 
 // Categorie standard per la pipeline
